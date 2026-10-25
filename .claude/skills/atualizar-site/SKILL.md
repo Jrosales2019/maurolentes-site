@@ -10,7 +10,7 @@ Fluxo, sempre nesta ordem:
 2. **Localizar** o trecho: script SOMENTE LEITURA que procura o texto em `httpdocs` (`index.html`, `assets\*.js`, `assets\*.css`) e relata arquivo, quantas vezes aparece e ~120 caracteres de contexto. Mostre o relatorio literal.
 3. **Propor** o script de mudanca e mostra-lo INTEIRO, com veredito, antes de subir. Cartao: aprovar / nao aprovar / conversar.
 4. **Script de mudanca** (`Publicar.ps1`, ASCII, PS 5.1):
-   - copia o site inteiro para `C:\Inetpub\vhosts\maurolentes.com.br\_backups\site-AAAAMMDD-HHMMSS` (ou zip);
+   - copia SO os arquivos que vai alterar para `C:\Inetpub\vhosts\maurolentes.com.br\_backups\AAAAMMDD-HHMMSS` (a copia completa de base em zip e feita uma unica vez, na 1a mudanca) e apaga as pastas de backup mais antigas, mantendo as 10 ultimas;
    - para cada troca, confere que o texto antigo aparece exatamente 1 vez; se nao, PARA sem mexer;
    - grava UTF-8 sem BOM; imagem: copia de `G:\My Drive\PlugWork\Claude\maurolentes.com.br\<arquivo>` para `httpdocs\images\`;
    - testa `https://127.0.0.1/` com Host `maurolentes.com.br` (200, tamanho, texto novo presente);
@@ -19,5 +19,5 @@ Fluxo, sempre nesta ordem:
 6. **Confirmar**: ler o relatorio (1 a 6 min), mostrar literal, dizer "no ar" so com o teste verde. Visual: o Jhoni confere no celular.
 7. **Registrar** em `HISTORICO.md`.
 
-Rollback: copiar de volta a pasta de `_backups` para `httpdocs` (script proprio, mostrado antes).
+Rollback: copiar de volta os arquivos da pasta de `_backups` da mudanca (ou o zip de base) para `httpdocs` (script proprio, mostrado antes).
 Mudanca de layout/estrutura no JS minificado: avisar o risco antes e propor teste num arquivo copia.

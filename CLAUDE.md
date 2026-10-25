@@ -10,7 +10,7 @@ Este repositorio guarda so o mapa, a skill `atualizar-site` e o historico (`HIST
 
 ## Regras
 1. Nenhum comando roda no servidor sem ser mostrado inteiro no chat antes, com veredito, e sem o ok do Jhoni (cartao AskUserQuestion).
-2. Todo script de mudanca faz copia de seguranca do site antes de alterar (pasta `_backups` fora de `httpdocs`).
+2. Backup enxuto (site inteiro = 4,3 MB): uma copia completa de base em zip (`_backups\base-AAAAMMDD.zip`, feita uma vez) e, em cada mudanca, copia SO dos arquivos que o script vai alterar (`_backups\AAAAMMDD-HHMMSS\`). Guarda as 10 ultimas pastas; o proprio script apaga as mais antigas. Tudo fora de `httpdocs`.
 3. Troca de texto: o texto antigo precisa aparecer exatamente 1 vez; senao o script para sem mexer.
 4. Resultado volta pelo relatorio no Drive, que voce le e mostra literal.
 5. Nao mexer em DNS, e-mail, MailEnable nem em outros dominios. Nao ler `AUTH.TAB`, `Postoffices` nem corpo de e-mail.
